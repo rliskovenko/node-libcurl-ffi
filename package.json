@@ -1,0 +1,31 @@
+{
+  "name": "node-libcurl-ffi",
+  "version": "0.0.1",
+  "description": "libcurl binding via node-ffi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rliskovenko/node-libcurl-ffi.git"
+  },
+  "keywords": [
+    "libcurl",
+    "curl",
+    "native"
+  ],
+  "author": "Roman V. Liskovenko <rliskovenko@gmail.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/rliskovenko/node-libcurl-ffi/issues"
+  },
+  "homepage": "https://github.com/rliskovenko/node-libcurl-ffi#readme",
+  "dependencies": {
+    "enum": "2.2.0",
+    "ffi": "2.0.0",
+    "ref": "1.2.0",
+    "ref-array": "1.1.2",
+    "ref-struct": "1.0.2"
+  }
+}
