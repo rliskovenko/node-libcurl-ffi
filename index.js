@@ -29,5 +29,55 @@ var FFI     = require( 'ffi' ),
             // const char *curl_easy_strerror(CURLcode errornum);
             'curl_easy_strerror'    : [ 'CString', [ typedef.CURLcode ] ],
             // char *curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength );
-            'curl_easy_unescape'    : [ 'CString', [ ptr.CURL, 'CString', 'int', ptr.int ] ]
+            'curl_easy_unescape'    : [ 'CString', [ ptr.CURL, 'CString', 'int', ptr.int ] ],
+            // CURLFORMcode curl_formadd(struct curl_httppost ** firstitem, struct curl_httppost ** lastitem, ...);
+            // void curl_formfree(struct curl_httppost * form);
+            // int curl_formget(struct curl_httppost * form, void *userp, curl_formget_callback append );
+            // void curl_free( char * ptr );
+            // time_t curl_getdate(char * datestring , time_t *now );
+            // void curl_global_cleanup(void);
+            // CURLcode curl_global_init(long flags );
+            // CURLcode curl_global_init_mem(long  flags,
+            //             curl_malloc_callback m,
+            //             curl_free_callback f,
+            //             curl_realloc_callback r,
+            //             curl_strdup_callback s,
+            //             curl_calloc_callback c );
+            // CURLMcode curl_multi_add_handle(CURLM *multi_handle, CURL *easy_handle);
+            // CURLMcode curl_multi_assign(CURLM *multi_handle, curl_socket_t sockfd,   void *sockptr);
+            // CURLMcode curl_multi_cleanup( CURLM *multi_handle );
+            // CURLMcode curl_multi_fdset(CURLM *multi_handle,
+            //                   fd_set *read_fd_set,
+            //                   fd_set *write_fd_set,
+            //                   fd_set *exc_fd_set,
+            //                   int *max_fd);
+            // CURLMsg *curl_multi_info_read( CURLM *multi_handle,   int *msgs_in_queue);
+            // CURLM *curl_multi_init( );
+            // CURLMcode curl_multi_perform(CURLM *multi_handle, int *running_handles);
+            // CURLMcode curl_multi_remove_handle(CURLM *multi_handle, CURL *easy_handle);
+            // CURLMcode curl_multi_setopt(CURLM * multi_handle, CURLMoption option, param);
+            // CURLMcode curl_multi_socket_action(CURLM * multi_handle,
+            //                           curl_socket_t sockfd, int ev_bitmask,
+            //                           int *running_handles);
+            // const char *curl_multi_strerror(CURLMcode  errornum );
+            // CURLMcode curl_multi_timeout(CURLM *multi_handle, long *timeout);
+            // CURLMcode curl_multi_wait(CURLM *multi_handle,
+            //                  struct curl_waitfd extra_fds[],
+            //                  unsigned int extra_nfds,
+            //                  int timeout_ms,
+            //                  int *numfds);
+            // CURLSHcode curl_share_cleanup(CURLSH * share_handle );
+            // CURLSH *curl_share_init( );
+            // CURLSHcode curl_share_setopt(CURLSH *share, CURLSHoption option, parameter);
+            // const char *curl_share_strerror(CURLSHcode  errornum );
+            // struct curl_slist *curl_slist_append(struct curl_slist * list, const char * string );
+            // void curl_slist_free_all(struct curl_slist * list);
+            // char *curl_version( );
+            'curl_version'     : [ 'CString', [] ],
+            // curl_version_info_data *curl_version_info( CURLversion type );
+            'curl_version_info'    : [ ptr.curl_version_info_data, [ types.CURLversion ] ]
         } );
+
+
+var s = libcurl.curl_version_info_data( types.CURLversion[ types.CURLVERSION_NOW ] );
+console.log( s );
